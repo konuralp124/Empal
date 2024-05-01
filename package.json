@@ -1,0 +1,37 @@
+{
+  "name": "recipe-project",
+  "version": "1.0.0",
+  "description": "Konuralp Sarisozen",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "argon2": "^0.31.2",
+    "assert": "^2.1.0",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "chai": "^4.3.10",
+    "dotenv": "^16.3.1",
+    "dotenv-vault": "^1.25.0",
+    "espress": "^0.0.0",
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.2",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-session": "^1.17.3",
+    "hbs": "^4.2.0",
+    "mongo": "^0.1.0",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.3.3",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.13",
+    "selenium-webdriver": "^4.15.0",
+    "session": "^0.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.3"
+  }
+}

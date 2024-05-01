@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+		<title></title>
+		<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed" rel="stylesheet">
+
+		<link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<img src="/images" alt="Description">
+</head>
+<body>
+<div id="container">
+	<header>
+			<h1><span>EMPAL</span>A Community That Fits <b>YOU</b></h1>
+			<h3>Welcome to the Empal community where you can share your experiences as a patient with a chronic health disease or as a health professional. You are not alone, and most importantly, you are in the right place!</h3>
+	</header>
+	
+	<nav>
+		<ul>
+			<li><a href="/u/{{username}}">My Profile</a></li>
+			<li><a href="/content/add">Post something!</a></li>
+			<li><a href="/personalized-content">Your Personalized Feed</a></li>
+			<li><a href="/messages">Your Messages</a></li>
+			<li><a href="/search-user">Find People</a></li>
+			<li><a href="/edit-profile">Update Profile</a></li>
+			
+		</ul>
+	</nav>
+
+	<div id="content">
+		{{#if username}}
+		Welcome {{username}}!
+		{{/if}}
+		{{{ body }}}
+	</div>
+</div>
+</body>
+</html>

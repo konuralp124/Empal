@@ -1,0 +1,41 @@
+{{#if error}}
+{{error}}
+{{/if}}
+<h1>Register</h1>
+<form action="/register" method="post">
+  <input type="text" name="username" placeholder="Username" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="password" name="password" placeholder="Password" required>
+  <input type="checkbox" name="isProfessional" id="isProfessional">
+  <label for="isProfessional">Register as Healthcare Professional</label>
+
+  <div id="professionalFields" style="display:none;">
+    <input type="text" name="diploma" placeholder="Diploma">
+    <input type="text" name="licenseNumber" placeholder="License Number">
+    <input type="text" name="areaOfExpertise" placeholder="License Number">
+    <textarea name="bio" placeholder="Short Bio"></textarea>
+  </div>
+
+  <fieldset>
+    <legend>Select Chronic Diseases you are interested in:</legend>
+    {{#each diseases}}
+      <div>
+        <input type="checkbox" id="disease{{this._id}}" name="diseases" value="{{this._id}}">
+        <label for="disease{{this._id}}">{{this.name}}</label>
+      </div>
+    {{/each}}
+  </fieldset>
+
+  <input type="checkbox" name="termsAccepted" id="termsAccepted" required>
+  <label for="termsAccepted">I agree to the <a href="/terms-and-conditions" target="_blank">Terms and Conditions</a></label>
+
+  <button type="submit">Register</button>
+</form>
+
+<script>
+  document.getElementById('isProfessional').addEventListener('change', function() {
+    document.getElementById('professionalFields').style.display = this.checked ? 'block' : 'none';
+  });
+
+
+</script>

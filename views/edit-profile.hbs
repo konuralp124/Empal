@@ -1,0 +1,14 @@
+<h1>Edit Profile</h1>
+<form action="/update-profile" method="post">
+    <fieldset>
+        <legend>Select Your Chronic Diseases:</legend>
+        {{#each diseases}}
+        <div>
+            <input type="checkbox" id="disease{{@index}}" name="diseases" value="{{this._id}}" {{#if this.isSelected}}checked{{/if}}>
+            <label for="disease{{@index}}">{{this.name}}</label>
+        </div>
+        {{/each}}
+    </fieldset>
+    <textarea name="bio" placeholder="Short Bio"></textarea>
+    <button type="submit">Update Profile</button>
+</form>

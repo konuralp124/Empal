@@ -1,0 +1,39 @@
+<!-- moderation.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moderation Panel</title>
+</head>
+<body>
+    <h1>Moderation Panel</h1>
+    {{#each users}}
+    <div>
+        <p>Username: {{this.userId.username}}</p>
+        <p>Email: {{this.userId.email}}</p>
+        <p>Diploma: {{this.userId.credentials.diploma}}</p>
+        <p>Area of Expertise: {{this.userId.credentials.areaOfExpertise}}</p>
+        <button onclick="verifyUser('{{this._id}}')">Verify</button>
+    </div>
+    {{/each}}
+    <script>
+    function verifyUser(userId) {
+        fetch('/verify-user/' + userId, { method: 'POST' })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('User verified!');
+                window.location.reload();
+            } else {
+                alert('Failed to verify user.');
+            }
+        })
+        .catch(error => {
+            console.error('Error verifying user:', error);
+            alert('Error verifying user.');
+        });
+    }
+    </script>
+</body>
+</html>

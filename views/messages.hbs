@@ -1,0 +1,18 @@
+<h1>Messages</h1>
+{{#if error}}
+{{error}}
+{{/if}}
+{{#each conversations}}
+    <form action="/send-message" method="post">
+        <input type="hidden" name="receiverUsername" value="{{partner.username}}">
+        <textarea name="message" placeholder="Type your message here..." required></textarea>
+        <button type="submit">Send</button>
+    </form>
+    <h2>Conversation with {{partner.username}}</h2>
+    <ul>
+        {{#each messages}}
+            <li>{{#if (equals this.sender.username ../partner.username)}}You:{{else}}{{this.sender.username}}:{{/if}} {{this.message}} - <small>{{this.timestamp}}</small></li>
+        {{/each}}
+    </ul>
+    
+{{/each}}

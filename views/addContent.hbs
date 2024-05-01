@@ -1,0 +1,8 @@
+<h1>Add New Content</h1>
+<form action="/content/add" method="post" enctype="multipart/form-data">
+  <input type="text" name="title" placeholder="Title" required>
+  <textarea name="body" placeholder="Content body" required></textarea>
+  <input type="text" name="tags" placeholder="Tags (comma-separated)">
+  <input type="file" name="image">
+  <button type="submit">Post Content</button>
+</form>

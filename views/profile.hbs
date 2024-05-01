@@ -1,0 +1,63 @@
+<head>
+<style>
+        .verified-badge {
+            color: #0d6efd; /* Bootstrap blue for example */
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+<header>
+        <h1>User Profile: {{user.username}}
+            {{#if user.isProfessional}}
+                {{#if user.credentials.verified}}
+                    <span class="verified-badge">&#x2713;</span> <!-- Unicode checkmark -->
+                {{/if}}
+            {{/if}}
+            {{#if otherUsername}}
+                <form action="/send-message" method="post">
+                    <input type="hidden" name="receiverUsername" value="{{user.username}}">
+                    <textarea name="message" placeholder="Type your message here..." required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            {{/if}}
+        </h1>
+</header>
+<section>
+<div class="bio">
+   {{user.bio}} 
+</div>
+{{#each user.contents}}
+  <div class="card">
+    <h2>{{this.title}}</h2>
+    <p>{{this.body}}</p>
+    {{#if this.image}}
+      <img src="{{removePublic this.image}}" alt="Posted Image">
+      {{!-- <img src="/images/{{this.image}}" alt="Posted Image"> --}}
+      
+    {{/if}}
+  </div>
+{{/each}}
+</section>
+</body>
+
+{{!-- 
+{{#if authenticated}}
+
+<h2>You can update your profile information here </h2>
+<form action="" method="post">
+  your bio:<input type="textArea" name="bio" placeholder="bio">
+  <fieldset>
+    <legend>Select Chronic Diseases you are interested in:</legend>
+    {{#each diseases}}
+      <div>
+        <input type="checkbox" id="disease{{this._id}}" name="diseases" value="{{this._id}}">
+        <label for="disease{{this._id}}">{{this.name}}</label>
+      </div>
+    {{/each}}
+  </fieldset>
+  <button type="submit" id="updateButton">Update</button>
+</form>
+{{/if}} --}}
+
+
